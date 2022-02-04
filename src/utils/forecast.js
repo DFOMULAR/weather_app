@@ -16,8 +16,10 @@ const forecast= (address,callback)=>{
         const loca = response.body.request.query
         const lati = response.body.location.lat
         const logi = response.body.location.lon
+        const hum = response.body.current.humidity
+        const pres = response.body.current.pressure
       //console.log(loca+": the latituid:"+lati+" and the logitude:"+logi+"the weather is "+response.body.current.weather_descriptions[0]+" The current temperature is "+temp+"'F and "+rain+" % chance of rain")
-      callback(undefined,loca+": The latituid:"+lati+" and the logitude:"+logi+" the weather is "+response.body.current.weather_descriptions[0]+" The current temperature is "+temp+"'C and "+rain+" % chance of rain")
+      callback(undefined,loca+": The latituid:"+lati+" and the logitude:"+logi+" the weather is "+response.body.current.weather_descriptions[0]+" The current temperature is "+temp+"'C"+", humidity of"+hum+"%, atmospheric pressure of "+pres+ "hpa and "+rain+" % chance of rain")
     }})
     }
     module.exports = forecast
